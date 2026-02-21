@@ -28,6 +28,22 @@ document.getElementById('cashout-btn').addEventListener('click', function(){
         alert("Cash out Successfully Completed")
         // document.getElementById("balance").innerText = newBalance;
         setBalance(newBalance)
+
+        // Step 1: Get the History Container
+        const history = document.getElementById('history-container');
+
+        // Step 2: Create New Div
+        const newHistory = document.createElement('div');
+
+        // Step 3: Inside new div add new html
+        newHistory.innerHTML = `
+            <div class="transaction-card p-5 bg-base-100">
+                Cash out ${cashoutAmount} Taka, Success to ${cashoutNumber} at ${new Date()}
+            </div>
+        `;
+        // Step 4: insert new div inside history container
+        history.append(newHistory)
+
     }else{
         alert("Please Enter a Valid Pin");
         return;
